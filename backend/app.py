@@ -60,8 +60,7 @@ def get_or_create_conversation(conversation_id: str) -> Conversation:
         conversations[conversation_id] = Conversation()
     return conversations[conversation_id]
 
-@app.post("/api/chat")
-
+@app.post("/chat")
 async def chat_endpoint(input: UserInput):
     conversation = get_or_create_conversation(input.conversation_id)
 
@@ -77,3 +76,6 @@ async def chat_endpoint(input: UserInput):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
     
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
