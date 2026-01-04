@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-const API_URL = "/api/chat";
+const API_URL = "https://devyani-chatbackend.vercel.app/chat";
 
 function App() {
   const [message, setMessage] = useState("");
